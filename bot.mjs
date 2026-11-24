@@ -195,5 +195,16 @@ createServer((req, res) => {
   console.log(`HTTP health-check слушает порт ${port}`);
 });
 
+// Держим бесплатный сервис Render бодрым: пингуем его публичный адрес
+// каждые 4 минуты, чтобы он не засыпал после 15 минут тишины.
+const SELF_PING_URL = "https://telegram-lead-bot-rugf.onrender.com/";
+setInterval(async () => {
+  try {
+    await fetch(SELF_PING_URL);
+  } catch (err) {
+    console.error("Авто-пинг не прошёл:", err.message);
+  }
+}, 4 * 60 * 1000);
+
 bot.start();
 console.log("Бот запущен.");
