@@ -1,0 +1,12 @@
+{
+  "name": "telegram-lead-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node bot.mjs"
+  },
+  "dependencies": {
+    "grammy": "^1.0.0"
+  }
+}

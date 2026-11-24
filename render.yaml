@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: leadcatcher-bot
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node bot.mjs
+    healthCheckPath: /
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_CHAT_ID
+        value: "2076381882"
